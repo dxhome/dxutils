@@ -6,3 +6,6 @@
 
 /** {@link Logger} */
 module.exports.Logger = require('./lib/logger');
+
+/** {@link DateTime} */
+module.exports.DateTime = require('./lib/datetime');
