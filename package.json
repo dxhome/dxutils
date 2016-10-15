@@ -1,0 +1,41 @@
+{
+  "name": "dxutils",
+  "version": "1.0.0",
+  "description": "Common nodejs utils",
+  "main": "index.js",
+  "directories": {
+    "test": "test",
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "npm run testsuite && npm run linter",
+    "testsuite": "./node_modules/.bin/mocha test/** --recursive",
+    "linter": "./node_modules/.bin/jshint --config .jshintrc ./index.js ./lib ./test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dxhome/dxutils.git"
+  },
+  "keywords": [
+    "util",
+    "log"
+  ],
+  "author": "dxhome <dxhome@hotmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dxhome/dxutils/issues"
+  },
+  "homepage": "https://github.com/dxhome/dxutils#readme",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "merge": "^1.2.0",
+    "readable-stream": "^2.1.5"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "jsdoc": "^3.4.2",
+    "jshint": "^2.9.3",
+    "mocha": "^3.1.2",
+    "sinon": "^1.17.6"
+  }
+}
