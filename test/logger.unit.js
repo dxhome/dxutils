@@ -20,7 +20,7 @@ describe('Logger', function() {
       logger.info('test');
       logger.info('test');
       logger.info('test');
-      logger.on('data', function(data) {
+      logger.on('data', function() {
         counter++;
         if (counter === 3) {
           done();
