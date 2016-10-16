@@ -2,7 +2,7 @@
 
 var fs = require('fs');
 var expect = require('chai').expect;
-var Logger = require('../lib/logger');
+var Logger = require('..').Logger;
 
 function prepare(files) {
   var testdir = './testdata';
@@ -59,7 +59,7 @@ describe('Logger', function() {
       var logger = new Logger(Logger.LOG_LEVEL_INFO, {isJSON: false});
 
       logger.once('data', function (data) {
-        expect(data.toString()).to.contain('{INFO} test');
+        expect(data.toString()).to.contain('{INFO}');
 
         done();
       });
@@ -68,7 +68,10 @@ describe('Logger', function() {
     });
 
     it('should log with customized prefix', function(done) {
-      var logger = new Logger(Logger.LOG_LEVEL_INFO, {isJSON: true, prefix: 'myprefix'});
+      var logger = new Logger(Logger.LOG_LEVEL_INFO, {
+        isJSON: true,
+        prefix: 'myprefix'
+      });
 
       logger.once('data', function (data) {
         expect(JSON.parse(data).prefix).to.equal('myprefix');
@@ -85,7 +88,10 @@ describe('Logger', function() {
       prepare(logfiles);
 
       // perform testing
-      var logger = new Logger(Logger.LOG_LEVEL_INFO, {isJSON: true, files: logfiles});
+      var logger = new Logger(Logger.LOG_LEVEL_INFO, {
+        isJSON: true,
+        files: logfiles
+      });
 
       logger.once('data', function (data) {
         // delay 1s to wait for file write sync
